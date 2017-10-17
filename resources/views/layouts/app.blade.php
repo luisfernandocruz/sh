@@ -16,9 +16,10 @@
 </head>
 <body>
 
-    <div class="col-sm-8 mx-auto">
+    <div class="col-sm-auto mx-auto">
         @yield('content')
     </div>
+
       
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
