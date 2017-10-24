@@ -6,6 +6,7 @@
 
 @section("content")
 	<div class="container white">
+		@include('producto.error');
 		<h1>Editar Producto</h1>
 		<!--formulario-->
 		@include('producto.form', ['producto'=>$producto, 'url'=>'/producto/'.$producto->id, 'method' => 'PATCH'])

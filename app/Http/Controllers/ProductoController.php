@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\ProductoRequest;
 use Illuminate\Http\Request;
 use App\Producto;
 use App\Proveedor;
@@ -39,13 +39,11 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
-        //
         $producto = new Producto;
         
         $producto->nombre=$request->nombre;
-        /*$categoria->user_id= Auth::user()->id;*/
         $producto->precio=$request->precio;
         $producto->cantidad=$request->cantidad;
         $producto->tipo_cantidad=$request->tipo_cantidad;
@@ -93,7 +91,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductoRequest $request, $id)
     {
         $producto = Producto::find($id);
         

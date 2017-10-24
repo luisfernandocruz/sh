@@ -6,6 +6,7 @@
 
 @section("content")
 	<div class="container white">
+		@include('producto.error');
 		<h1>Nuevo Producto</h1>
 		<!--formulario-->
 
