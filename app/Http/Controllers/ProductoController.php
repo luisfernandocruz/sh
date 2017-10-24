@@ -84,6 +84,7 @@ class ProductoController extends Controller
         $proveedores=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         $categorias=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         return view("producto.create", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);
+    }
 
     /**
      * Update the specified resource in storage.
