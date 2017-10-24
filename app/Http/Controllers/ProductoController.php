@@ -80,7 +80,7 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $producto = new Producto;
+        $producto = Producto::find($id);
         $proveedores=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         $categorias=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         return view("producto.edit", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);
