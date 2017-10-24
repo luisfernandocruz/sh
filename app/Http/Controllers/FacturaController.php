@@ -76,7 +76,8 @@ class FacturaController extends Controller
     {
         //
         $factura = Factura::find($id);
-        return view("factura.edit", ["factura" => $factura]);
+        $venta=Venta::orderBy('id', 'ASC')->pluck('id', 'id');
+        return view("factura.edit", ["factura" => $factura])->with('ventas', $venta);
     }
 
     /**

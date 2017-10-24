@@ -8,6 +8,6 @@
 	<div class="container white">
 		<h1>Editar Detalle de venta</h1>
 		<!--formulario-->
-		@include('detalle.form', ['detalle'=>$detalleventa, 'url'=>'/detalle/'.$detalleventa->id, 'method' => 'PATCH'])
+		@include('detalle.form', ['detalle'=>$detalle, 'url'=>'/detalle/'.$detalle->id, 'method' => 'PATCH'])
 	</div>
 @endsection

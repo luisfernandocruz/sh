@@ -79,8 +79,12 @@ class DetalleController extends Controller
     public function edit($id)
     {
         //
+        
         $detalle = Detalleventa::find($id);
-        return view("detalle.edit", ["detalle" => $detalle]);
+        $venta=Venta::orderBy('id', 'ASC')->pluck('id', 'id');
+        $factura=Factura::orderBy('id', 'ASC')->pluck('id', 'id');
+        $producto=Producto::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
+        return view("detalle.edit", ["detalle" => $detalle])->with('ventas', $venta)->with('facturas', $factura)->with('productos', $producto);
     }
 
     /**
