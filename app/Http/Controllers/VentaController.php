@@ -73,7 +73,9 @@ class VentaController extends Controller
     public function edit($id)
     {
         $venta = Venta::find($id);
-        return view("venta.edit", ["venta" => $venta]);
+        $user=User::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view("venta.edit", ["venta" => $venta])->with('users', $user);
+        
     }
 
     /**
