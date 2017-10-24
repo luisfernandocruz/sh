@@ -31,4 +31,13 @@ class ProductoRequest extends FormRequest
             'categoria_id' => 'required',
         ];
     }
+
+    public function messages()
+    {
+    return [
+        'nombre.required' => 'El :attribute es obligatorio.',
+        'precio.required' => 'Añade un :attribute al producto',
+        'cantidad.required' => 'Añaden la :attribute del producto'
+    ];
+}
 }
