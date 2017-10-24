@@ -28,9 +28,9 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto;
-        $proveedor=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
-        $categoria=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
-        return view("producto.create", ["producto" => $producto])->with('proveedores', $proveedor)->with('categorias', $categoria);
+        $proveedores=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
+        $categorias=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
+        return view("producto.create", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);
     }
 
     /**
@@ -81,9 +81,9 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = new Producto;
-        $proveedor=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
-        return view("producto.create", ["producto" => $producto])->with('nombre', $proveedor);
-    }
+        $proveedores=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
+        $categorias=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
+        return view("producto.create", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);
 
     /**
      * Update the specified resource in storage.
@@ -94,7 +94,6 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $producto = Producto::find($id);
         
         $producto->nombre=$request->nombre;
@@ -119,7 +118,6 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
         Producto::destroy($id);
 
         return redirect('/producto');
