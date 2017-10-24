@@ -80,10 +80,11 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $producto = new Producto;
+        $producto = Producto::find($id);
         $proveedores=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         $categorias=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
-        return view("producto.create", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);
+        return view("producto.edit", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);
+    }
 
     /**
      * Update the specified resource in storage.
