@@ -15,6 +15,7 @@
 				<td>Producto</td>
 				<td>Precio</td>
 				<td>Cantidad</td>
+				<td>Tipo Cantidad</td>
 				<td>Proveedor</td>
 				<td>Categoria</td>
 				<td>Acciones</td>
@@ -27,8 +28,9 @@
 				<td>{{ $producto->nombre}}</td>
 				<td>{{ $producto->precio}}</td>
 				<td>{{ $producto->cantidad}}</td>
-				<td>{{ $producto->proveedor_id}}</td>
-				<td>{{ $producto->categoria_id}}</td>
+				<td>{{ $producto->tipo_cantidad}}</td>
+				<td>{{ $producto->proveedor->nombre}}</td>
+				<td>{{ $producto->categoria->nombre}}</td>
 				<td>
 					<a href="{{url('/producto/'.$producto->id.'/edit')}}">Editar</a>
 

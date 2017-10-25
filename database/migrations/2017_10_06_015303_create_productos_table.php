@@ -18,7 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre');
             $table->decimal('precio', 7,2);
             $table->integer('cantidad');
-            $table->string('tipo_cantidad');
+            $table->enum('tipo_cantidad', ['kilogramos', 'gramos', 'litros', 'mililitros', 'piezas'])->default('piezas');
             $table->integer('proveedor_id')->unsigned();
             $table->foreign('proveedor_id')->references('id')->on('proveedores');
 

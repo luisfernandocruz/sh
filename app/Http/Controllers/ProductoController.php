@@ -17,6 +17,10 @@ class ProductoController extends Controller
     public function index()
     { 
         $producto = Producto::all();
+        $producto->each(function($producto){
+            $producto->proveedor;
+            $producto->categoria;
+        });
         return view('producto.index', ["producto" => $producto]);
     }
 
@@ -79,6 +83,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
+        $producto->proveedor;
+        $producto->categoria;
         $proveedores=Proveedor::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         $categorias=Categoria::orderBy('nombre', 'ASC')->pluck('nombre', 'id');
         return view("producto.edit", ["producto" => $producto])->with('proveedores', $proveedores)->with('categorias', $categorias);

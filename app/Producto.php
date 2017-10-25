@@ -9,11 +9,11 @@ class Producto extends Model
     protected $table = 'productos';
 
     protected $fillable = [
-    	'nombre', 'precio', 'cantidad', 'proveedor_id', 'categoria_id',
+    	'nombre', 'precio', 'cantidad', 'tipo_cantidad', 'proveedor_id', 'categoria_id',
     ];
 
     protected $hidden = [
-    	'nombre', 'precio', 'cantidad', 'proveedor_id', 'categoria_id',
+    	'nombre', 'precio', 'cantidad', 'tipo_cantidad', 'proveedor_id', 'categoria_id',
     ];
 
     public function categoria()
