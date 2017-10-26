@@ -14,7 +14,7 @@
 			{{Form::text('nombre', $producto->nombre, ['class'=>'form-control', 'placeholder'=>'nombre...'])}}
 			{{Form::text('precio', $producto->precio, ['class'=>'form-control', 'placeholder'=>'precio...'])}}
 			{{Form::text('cantidad', $producto->cantidad, ['class'=>'form-control', 'placeholder'=>'cantidad...'])}}
-			{{Form::select('tipo_cantidad', ['' => 'Seleccione el tipo de cantidad', 'kilogramos', 'gramos', 'litros', 'mililitros', 'piezas'], null, ['class'=>'form-control', 'placeholder'=>'Tipo cantidad...'])}}
+			{{Form::select('tipo_cantidad', ['' => 'Seleccione un tipo de cantidad', 'kilogramos' => 'kilogramos', 'gramos' => 'gramos', 'litros' => 'litros', 'mililitros' => 'mililitros', 'piezas' => 'piezas'], $producto->tipo_cantidad, ['class'=>'form-control'])}}
 			{{Form::select('proveedor_id', $proveedores, $producto->proveedor->id, ['class'=>'form-control', 'placeholder'=>'Proveedor...'] )}}
 			{{Form::select('categoria_id', $categorias, $producto->categoria->id, ['class'=>'form-control', 'placeholder'=>'Categoria...'] )}}
 
