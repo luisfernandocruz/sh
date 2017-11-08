@@ -26,7 +26,8 @@ class ProductoRequest extends FormRequest
         return [
             'nombre' => 'required',
             'precio' => 'required', 
-            'cantidad'  => 'required', 
+            'cantidad'  => 'required',
+            'tipo_cantidad'  => 'required',
             'proveedor_id'  => 'required', 
             'categoria_id' => 'required',
         ];
@@ -36,8 +37,11 @@ class ProductoRequest extends FormRequest
     {
     return [
         'nombre.required' => 'El :attribute es obligatorio.',
-        'precio.required' => 'Añade un :attribute al producto',
-        'cantidad.required' => 'Añaden la :attribute del producto'
+        'precio.required' => 'Añade un :attribute al producto.',
+        'cantidad.required' => 'Añade la :attribute del producto.',
+        'tipo_cantidad.required' => 'Añade un tipo de cantidad del producto.',
+        'proveedor_id.required' => 'Elije un proveedor del producto.',
+        'categoria_id.required' => 'Elije una categoria del producto.',
     ];
-}
+    }
 }

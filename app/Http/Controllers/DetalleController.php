@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DetalleVentaRequest;
 use App\Detalleventa;
 use App\Venta;
 use App\Factura;
@@ -18,7 +19,12 @@ class DetalleController extends Controller
     public function index()
     {
         $detalle = Detalleventa::all();
-        return view('detalle.index', ["detalle" => $detalle]);
+        /**$detalle->each(function($detalle){
+            $detalle->productos;
+            dd($detalle);
+
+        });*/
+        return view('detalle.index')->with("detalle", $detalle);
     }
 
     /**
@@ -41,7 +47,7 @@ class DetalleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DetalleVentaRequest $request)
     {
         $detalle = new Detalleventa;
         
@@ -94,7 +100,7 @@ class DetalleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DetalleVentaRequest $request, $id)
     {
         //
         $detalle = Detalleventa::find($id);

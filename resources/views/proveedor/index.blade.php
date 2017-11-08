@@ -8,8 +8,9 @@
 <div class="big-padding text-center blue-grey white-text">
 	<h1>Proveedores</h1>
 </div>
+<a class="btn btn-outline-success" href="{{url('/proveedor/create')}}" role="button">Agregar</a>
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<td>Proveedor</td>
@@ -22,9 +23,8 @@
 				
 				<td>{{ $proveedor->nombre}}</td>
 				<td>
-					<a href="{{url('/proveedor/'.$proveedor->id.'/edit')}}">Editar</a>
+					<a type="button" class="btn btn-outline-info" href="{{url('/proveedor/'.$proveedor->id.'/edit')}}">Editar</a>
 
-					@include('proveedor.delete',['proveedor'=>$proveedor])
 				</td>
 			</tr>
 			@endforeach
@@ -32,9 +32,4 @@
 	</table>
 </div>
 
-<div class="floating">
-	<a href="{{url('/proveedor/create')}}" class="btn btn-primary btn-fab">
-		<i class="material-icons">add</i>
-	</a>
-</div>
 @endsection

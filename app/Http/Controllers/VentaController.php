@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\VentaRequest;
 use App\Venta;
 use App\User;
 
@@ -16,6 +17,9 @@ class VentaController extends Controller
     public function index()
     {
         $ventas = Venta::all();
+        $ventas->each(function($ventas){
+            $ventas->user;
+        });
         return view('venta.index', ["venta" => $ventas]);
     }
 
@@ -37,7 +41,7 @@ class VentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VentaRequest $request)
     {
         $venta = new Venta;
         
@@ -85,7 +89,7 @@ class VentaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VentaRequest $request, $id)
     {
         $venta = Venta::find($id);
         

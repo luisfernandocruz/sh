@@ -8,8 +8,9 @@
 <div class="big-padding text-center blue-grey white-text">
 	<h1>Categorias</h1>
 </div>
+<a class="btn btn-outline-success" href="{{url('/categoria/create')}}" role="button">Agregar</a>
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<td>Categoria</td>
@@ -22,19 +23,19 @@
 				
 				<td>{{ $categoria->nombre }}</td>
 				<td>
-					<a href="{{url('/categoria/'.$categoria->id.'/edit')}}">Editar</a>
+					<a type="button" class="btn btn-outline-info" href="{{url('/categoria/'.$categoria->id.'/edit')}}">Editar</a>
 
-					@include('categoria.delete',['categoria'=>$categoria])
+					<!--@include('categoria.delete',['categoria'=>$categoria])-->
 				</td>
 			</tr>
 			@endforeach
 		</tbody>
 	</table>
 </div>
-
+<!--
 <div class="floating">
 	<a href="{{url('/categoria/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">add</i>
 	</a>
-</div>
+</div>-->
 @endsection

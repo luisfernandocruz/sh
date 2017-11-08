@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\FacturaRequest;
 use App\Factura;
 use App\Venta;
 
@@ -37,7 +38,7 @@ class FacturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FacturaRequest $request)
     {
         //
         $factura = new Factura;
@@ -87,7 +88,7 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FacturaRequest $request, $id)
     {
         //
         $factura = Factura::find($id);

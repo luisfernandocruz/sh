@@ -8,8 +8,10 @@
 <div class="big-padding text-center blue-grey white-text">
 	<h1>Detalle de ventas</h1>
 </div>
+<a class="btn btn-outline-success" href="{{url('/detalle/create')}}" role="button">Agregar</a>
+
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<td>Numero de venta</td>
@@ -26,9 +28,8 @@
 				<td>{{ $detalleventa->factura_id}}</td>
 				<td>{{ $detalleventa->producto_id}}</td>
 				<td>
-					<a href="{{url('/detalle/'.$detalleventa->id.'/edit')}}">Editar</a>
-
-					@include('detalle.delete',['detalle'=>$detalleventa])
+					<a type="button" class="btn btn-outline-info"  href="{{url('/detalle/'.$detalleventa->id.'/edit')}}">Editar</a>
+					
 				</td>
 			</tr>
 			@endforeach
@@ -36,9 +37,4 @@
 	</table>
 </div>
 
-<div class="floating">
-	<a href="{{url('/detalle/create')}}" class="btn btn-primary btn-fab">
-		<i class="material-icons">add</i>
-	</a>
-</div>
 @endsection

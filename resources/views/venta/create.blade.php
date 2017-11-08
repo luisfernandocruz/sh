@@ -8,6 +8,6 @@
 	<div class="container white">
 		<h1>Nueva Venta</h1>
 		<!--formulario-->
-		@include('venta.form', ['venta'=>$venta, 'url'=>'/venta', 'method' => 'POST']);
+		@include('venta.form', ['venta'=>$venta, 'url'=>'/venta', 'method' => 'POST'])
 	</div>
 @endsection

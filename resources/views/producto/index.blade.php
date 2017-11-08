@@ -5,11 +5,14 @@
 @endsection
 
 @section('content')
+
 <div class="big-padding text-center blue-grey white-text">
 	<h1>Productos</h1>
 </div>
+<a class="btn btn-outline-success" href="{{url('/producto/create')}}" role="button">Agregar</a>
+
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<td>Producto</td>
@@ -32,9 +35,11 @@
 				<td>{{ $producto->proveedor->nombre}}</td>
 				<td>{{ $producto->categoria->nombre}}</td>
 				<td>
-					<a href="{{url('/producto/'.$producto->id.'/edit')}}">Editar</a>
-
-					@include('producto.delete',['producto'=>$producto])
+					<a type="button" class="btn btn-outline-info" href="{{url('/producto/'.$producto->id.'/edit')}}">Editar</a>
+					<!--
+					<button type="button" class="btn btn-outline-danger btn-sm">@include('producto.delete',['producto'=>$producto])</button>
+					-->
+				
 				</td>
 			</tr>
 			@endforeach
@@ -42,9 +47,4 @@
 	</table>
 </div>
 
-<div class="floating">
-	<a href="{{url('/producto/create')}}" class="btn btn-primary btn-fab">
-		<i class="material-icons">add</i>
-	</a>
-</div>
 @endsection

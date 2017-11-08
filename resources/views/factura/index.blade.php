@@ -8,8 +8,10 @@
 <div class="big-padding text-center blue-grey white-text">
 	<h1>Facturas</h1>
 </div>
+<a class="btn btn-outline-success" href="{{url('/factura/create')}}" role="button">Agregar</a>
+
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<td>Numero de factura</td>
@@ -26,9 +28,8 @@
 				<td>{{ $factura->venta_id}}</td>
 				<td>{{ $factura->total}}</td>
 				<td>
-					<a href="{{url('/factura/'.$factura->id.'/edit')}}">Editar</a>
+					<a type="button" class="btn btn-outline-info" href="{{url('/factura/'.$factura->id.'/edit')}}">Editar</a>
 
-					@include('factura.delete',['factura'=>$factura])
 				</td>
 			</tr>
 			@endforeach
@@ -36,9 +37,4 @@
 	</table>
 </div>
 
-<div class="floating">
-	<a href="{{url('/factura/create')}}" class="btn btn-primary btn-fab">
-		<i class="material-icons">add</i>
-	</a>
-</div>
 @endsection
