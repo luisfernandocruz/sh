@@ -25,8 +25,8 @@ class ProductoRequest extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'precio' => 'required', 
-            'cantidad'  => 'required',
+            'precio' => 'required|numeric', 
+            'cantidad'  => 'required|numeric',
             'tipo_cantidad'  => 'required',
             'proveedor_id'  => 'required', 
             'categoria_id' => 'required',
@@ -38,7 +38,9 @@ class ProductoRequest extends FormRequest
     return [
         'nombre.required' => 'El :attribute es obligatorio.',
         'precio.required' => 'Añade un :attribute al producto.',
+        'precio.numeric' => 'El :attribute debe ser numérico.',
         'cantidad.required' => 'Añade la :attribute del producto.',
+        'cantidad.numeric' => 'La :attribute debe ser numérica.',
         'tipo_cantidad.required' => 'Añade un tipo de cantidad del producto.',
         'proveedor_id.required' => 'Elije un proveedor del producto.',
         'categoria_id.required' => 'Elije una categoria del producto.',

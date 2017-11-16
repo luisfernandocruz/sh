@@ -24,13 +24,14 @@ class CategoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'nombre' => 'required|unique',
         ];
     }
     public function messages()
     {
     return [
-        'nombre.required' => 'El :attribute es obligatorio.',
+        'nombre.required' => 'El :attribute es obligatorio.'
+        'nombre.unique' => 'El :attribute debe ser único.'
     ];
     }
 }

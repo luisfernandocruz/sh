@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProveedorRequest extends FormRequest
+class CategoriasRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ProveedorRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,14 +24,7 @@ class ProveedorRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|string',
+            //
         ];
-    }
-    public function messages()
-    {
-    return [
-        'nombre.required' => 'El :attribute es obligatorio.',
-        'nombre.string' => 'El :attribute debe ser string.',
-    ];
     }
 }
